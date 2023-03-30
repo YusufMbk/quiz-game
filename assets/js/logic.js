@@ -23,3 +23,38 @@ let initialElement = document.getElementById("initals");
 let feedBackElement = document.getElementById("feedback");
 
 let sfx = new Audio("assets/sfx/correct.wav")
+
+function questionOnClick(){
+
+}
+
+function getQuestion(){
+
+}
+
+function clockTick(){
+
+}
+
+function startQuiz(){
+
+}
+
+function quizEnd(){
+
+}
+
+function saveHs(){
+
+}
+
+function checkForEnter(event){
+
+}
+
+startButton.addEventListener("click", startQuiz);
+
+submitButton.addEventListener("click", saveHighScore);
+
+initialElement.addEventListener("keyup", checkForEnter);
+
