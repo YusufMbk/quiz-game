@@ -22,6 +22,8 @@ let initialElement = document.getElementById("initals");
 
 let feedBackElement = document.getElementById("feedback");
 
+
+// checks to see if an answer was clicked or not and determines if the answer clicked was correct or not
 function questionOnClick(){
     console.log("question was clicked");
     if(this.value !== questions[currentQuestionIndex].answer){
@@ -56,6 +58,8 @@ function questionOnClick(){
     
 
 
+// function to select the question from the questions.js file and number the choices from 1-4 by using the index and also grabs all the choices available.
+
 function getQuestion(){
 
     let currentQuestion = questions[currentQuestionIndex];
@@ -84,6 +88,8 @@ function getQuestion(){
 }
 
 
+// time function
+
 function clockTick(){
     time--;
     timerElement.textContent = time;
@@ -92,6 +98,9 @@ function clockTick(){
         quizEnd();
     }
 }
+
+
+// function to start the quiz, it hides the start screen and brings up the questions.
 
 function startQuiz(){
     let startScreenElement = document.getElementById("start-screen");
@@ -106,6 +115,9 @@ function startQuiz(){
     getQuestion();
 }
 
+
+// end quiz function - it brings up the final score element and displays the score as the time remaining.
+
 function quizEnd(){
     clearInterval(timerID);
 
@@ -119,6 +131,8 @@ function quizEnd(){
 
 }
 
+
+// function to save the highscore of the player. they can also choose to not give any initals.
 
 function saveHighScore(){
     let initals = initialElement.value.trim();
@@ -139,6 +153,8 @@ function saveHighScore(){
     }
 
 }
+
+// checks to see if the enter button is pressed to save the user's highscore.
 
 function checkForEnter(event){
 

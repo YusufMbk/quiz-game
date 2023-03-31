@@ -1,3 +1,6 @@
+
+// array for all the possible questions for the quiz.
+
 let questions = [
     {
         "title": "Which of the following is NOT a common Data Type:",
