@@ -4,7 +4,7 @@ let currentQuestionIndex = 0;
 
 let time = questions.length * 15;
 
-let timerID;
+let timerID = 0;
 
 // HTML elements
 
@@ -22,9 +22,6 @@ let initialElement = document.getElementById("initals");
 
 let feedBackElement = document.getElementById("feedback");
 
-let sfx = new Audio("assets/sfx/correct.wav")
-
-
 function questionOnClick(){
     console.log("question was clicked");
     if(this.value !== questions[currentQuestionIndex].answer){
@@ -38,7 +35,6 @@ function questionOnClick(){
 
         feedBackElement.textContent = "Wrong answer";
     } else {
-        sfxRight.play();
         feedBackElement.textContent = "You answered correctly!";
         }
 
@@ -72,12 +68,12 @@ function getQuestion(){
 
     currentQuestion.choices.forEach(function(choice, index){
 
-        var choice = choiceButton = document.createElement("button");
+        var choiceButton = document.createElement("button");
 
         choiceButton.setAttribute("class", "choice");
         choiceButton.setAttribute("value", choice);
 
-        choiceButton.textContent = `${index +1}, ${choice}`
+        choiceButton.textContent = `${index +1}. ${choice}`
 
         choiceButton.addEventListener("click", questionOnClick);
 
@@ -125,7 +121,7 @@ function quizEnd(){
 
 
 function saveHighScore(){
-    let initals = initalElement.value.trim();
+    let initals = initialElement.value.trim();
 
     if(initals !== ""){
         let highScores = JSON.parse(localStorage.getItem("highscores")) || [];
