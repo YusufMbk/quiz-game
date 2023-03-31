@@ -1,6 +1,6 @@
 //variables for current quiz states
 
-let currentQuestion = 0;
+let currentQuestionIndex = 0;
 
 let time = questions.length * 15;
 
@@ -27,7 +27,7 @@ let sfx = new Audio("assets/sfx/correct.wav")
 
 function questionOnClick(){
     console.log("question was clicked");
-    if(this.value !== questions[currentQuestion].answer){
+    if(this.value !== questions[currentQuestionIndex].answer){
         time -= 10;
 
         if(time<0){
@@ -48,9 +48,9 @@ function questionOnClick(){
             feedBackElement.setAttribute("class", "feedback hide")
         }  , 1500);
 
-        currentQuestion++;
+        currentQuestionIndex++;
 
-        if(currentQuestion === questions.length) {
+        if(currentQuestionIndex === questions.length) {
             quizEnd()
         } else{
             getQuestion();
@@ -62,7 +62,7 @@ function questionOnClick(){
 
 function getQuestion(){
 
-    let currentQuestion = questions[currentQuestion];
+    let currentQuestion = questions[currentQuestionIndex];
 
     let titleElement = document.getElementById("question-title");
 
@@ -77,7 +77,7 @@ function getQuestion(){
         choiceButton.setAttribute("class", "choice");
         choiceButton.setAttribute("value", choice);
 
-        choiceButton.textContent = `${index +1}. ${choice}`
+        choiceButton.textContent = `${index +1}, ${choice}`
 
         choiceButton.addEventListener("click", questionOnClick);
 
@@ -156,6 +156,5 @@ startButton.addEventListener("click", startQuiz);
 
 submitButton.addEventListener("click", saveHighScore);
 
-initialElement.addEventListener("keyup", checkForEnter);
 
 

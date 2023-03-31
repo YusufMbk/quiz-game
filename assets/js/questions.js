@@ -2,7 +2,7 @@ let questions = [
     {
         "title": "Which of the following is NOT a common Data Type:",
         "choices": ["String", "Integers", "Decimal", "Alerts"],
-        "answer" : "alerts"
+        "answer" : "Alerts"
     },
 
     {
